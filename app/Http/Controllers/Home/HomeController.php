@@ -27,7 +27,24 @@ class HomeController extends Controller
 
     public function insert(){
 
-        $this->country->insert();
+//        $this->country->insert();
+
+
+        $unixTimestamp = (new \DateTime())->getTimestamp();
+
+        $data = [
+            'code' => 'XYZ',
+            'name' => 'XYZ',
+            'dname' => 'ZSY',
+            'num_code' => 0,
+            'phone_code' => 0,
+            'created' => $unixTimestamp,
+            'register_by' => 1,
+            'modified' => $unixTimestamp,
+            'modified_by' => 1,
+        ];
+
+        Country::create($data);
 
         return 'Inserted';
 
@@ -40,7 +57,15 @@ class HomeController extends Controller
     }
 
     public function read(){
-        return $this->country->read();
+
+
+//        return $this->country->read();
+
+        foreach(Country::all() as $data){
+            dump($data->name);
+        }
+
+
     }
 
     public function delete(){
