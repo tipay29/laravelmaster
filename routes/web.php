@@ -36,5 +36,9 @@ Route::group(['namespace' => 'Home'], function(){
     Route::get('/hello', 'HomeController@hello');
     Route::resource('/users', 'UserController');
 
+    Route::get('/insert', 'HomeController@insert');
+    Route::get('/edit', 'HomeController@edit');
+    Route::get('/read', 'HomeController@read');
+    Route::get('/delete', 'HomeController@delete');
 
 });
