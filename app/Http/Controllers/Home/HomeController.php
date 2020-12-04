@@ -9,7 +9,8 @@ class HomeController extends Controller
 {
     public function hello(){
 
-        $data = 'data';
-        return view('welcome.hello', compact('data'));
+        $data = config('admin.admin')[0];
+        $data2 = config('app.admin');
+        return view('welcome.hello', compact('data', 'data2'));
     }
 }
