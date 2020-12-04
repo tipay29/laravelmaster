@@ -10,6 +10,9 @@ class HomeController extends Controller
     public function hello(){
 
         $data = 'data';
-        return view('welcome.hello', compact('data'));
+
+        $users = array('aw1','aw2','aw3');
+
+        return view('welcome.hello', compact('data','users'));
     }
 }
