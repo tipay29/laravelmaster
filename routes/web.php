@@ -16,3 +16,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/contact-us', function () {
+    return 'Contact us Page';
+});
+
+Route::get('/about-us', function () {
+    return 'About-us Page';
+});
+
+Route::get('/posts/{post}', function($post){
+
+    return 'Post #' . $post;
+
+});
+
+Route::group(['namespace' => 'Home'], function(){
+
+    Route::get('/hello', 'HomeController@hello');
+    Route::resource('/users', 'UserController');
+
+
+});
