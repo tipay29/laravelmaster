@@ -92,4 +92,14 @@ class HomeController extends Controller
 
 //        return $student;
     }
+
+    public function morph(){
+
+        $student = Student::find(1);
+        $student->images()->create(['path' => 's_image.jpg']);
+
+        $student->addresses()->create(['address_line_1' => 'Aprt 412',
+        'address_line_2' => 'Aprt 413',
+            'address_line_3' => 'Aprt 414']);
+    }
 }

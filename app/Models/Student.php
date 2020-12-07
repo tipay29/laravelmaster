@@ -25,4 +25,16 @@ class Student extends Model
         return $this->belongsToMany('App\Models\Subject',
         'selections', 'student_id', 'subject_id');
     }
+
+    public function images(){
+        return $this->morphMany('App\Models\Image', 'imageable');
+    }
+
+    public function addresses(){
+        return $this->morphMany('App\Models\Address', 'addressable');
+    }
+
+    public function contacts(){
+        return $this->morphMany('App\Models\Contact', 'contactable');
+    }
 }
