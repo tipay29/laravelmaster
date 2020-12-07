@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Country;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,7 +29,6 @@ class HomeController extends Controller
     public function insert(){
 
 //        $this->country->insert();
-
 
         $unixTimestamp = (new \DateTime())->getTimestamp();
 
@@ -71,5 +71,25 @@ class HomeController extends Controller
     public function delete(){
         $this->country->delete();
         return 'Deleted!';
+    }
+
+    public function relationship(){
+        $students = Student::all();
+
+        foreach($students as $student){
+            dump('Student Info ---------------------------------');
+            dump($student->first_name . $student->last_name);
+            dump($student->city->name);
+            dump($student->card->status == 1 ? 'Active' : 'Deactive');
+
+            dump('Subjects:');
+            foreach($student->subjects as $subject){
+                dump($subject->name);
+            }
+
+
+        }
+
+//        return $student;
     }
 }

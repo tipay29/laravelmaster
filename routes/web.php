@@ -40,5 +40,6 @@ Route::group(['namespace' => 'Home'], function(){
     Route::get('/edit', 'HomeController@edit');
     Route::get('/read', 'HomeController@read');
     Route::get('/delete', 'HomeController@delete');
+    Route::get('/relationships', 'HomeController@relationship');
 
 });
